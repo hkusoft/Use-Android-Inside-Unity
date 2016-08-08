@@ -13,12 +13,12 @@ import android.widget.RelativeLayout;
  */
 public class Utils {
 
-    public static ImageView AddImageView(Activity activity, int imgResId, int x, int y){
+    public static ImageView AddImageView(Activity activity, int imgResId, int x, int y) {
         ImageView imageView = new ImageView(activity);
         imageView.setImageResource(imgResId);
 
 
-        FrameLayout frameLayout= new FrameLayout(activity);
+        FrameLayout frameLayout = new FrameLayout(activity);
 
         frameLayout.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT));
@@ -33,6 +33,10 @@ public class Utils {
         frameLayout.setY(y);
 
         return imageView;
+    }
+
+    public static ImageView AddImageView(Activity activity, int x, int y) {
+        return AddImageView(activity, R.drawable.android, x, y);
     }
 
 }
