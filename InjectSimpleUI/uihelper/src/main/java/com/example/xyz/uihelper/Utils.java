@@ -23,8 +23,8 @@ public class Utils {
         //adding view to layout
         frameLayout.addView(imageView);
 
-        activity.addContentView(frameLayout, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT));
+        activity.addContentView(frameLayout, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
 
         frameLayout.setX(x);
         frameLayout.setY(y);
