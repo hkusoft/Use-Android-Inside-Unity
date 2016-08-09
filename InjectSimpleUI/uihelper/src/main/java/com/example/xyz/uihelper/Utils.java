@@ -1,19 +1,16 @@
 package com.example.xyz.uihelper;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 /**
  * Created by David on 08/08/16.
  */
 public class Utils {
 
-    public static ImageView AddImageView(Activity activity, int imgResId, int x, int y) {
+    private static ImageView AddImageView(Activity activity, int imgResId, int x, int y) {
         ImageView imageView = new ImageView(activity);
         imageView.setImageResource(imgResId);
 
@@ -35,8 +32,15 @@ public class Utils {
         return imageView;
     }
 
-    public static ImageView AddImageView(Activity activity, int x, int y) {
-        return AddImageView(activity, R.drawable.android, x, y);
+    public static void AddImageView(final Activity activity, final int x, final int y) {
+        final int resImageId = R.drawable.android;
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                AddImageView(activity, resImageId, x, y);
+            }
+        });
+
     }
 
 }

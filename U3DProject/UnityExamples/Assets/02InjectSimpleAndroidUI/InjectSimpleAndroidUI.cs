@@ -10,12 +10,9 @@ public class InjectSimpleAndroidUI : MonoBehaviour {
         {
             Debug.Log("Android function is to be called");
 
-            var ajc = new AndroidJavaClass("com.example.xyz.uihelper.Utils");
+            var ajc = new AndroidJavaClass("com.example.xyz.uihelper.Utils"); 
+            ajc.CallStatic("AddImageView", GetAndroidActivity(),  0, 0);
 
-            AndroidJavaObject activity = GetAndroidActivity();
-            Debug.Log(activity==null? "Android Activity found": "NULL activity");
-            var output = ajc.CallStatic<object>("AddImageView", activity,  0, 0); 
-            Debug.Log(output);
             
         }
     }
