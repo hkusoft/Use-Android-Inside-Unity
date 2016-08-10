@@ -1,6 +1,7 @@
 package com.example.xyz.uihelper;
 
 import android.app.Activity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -10,29 +11,36 @@ import android.widget.ImageView;
  */
 public class Utils {
 
-    private static ImageView AddImageView(Activity activity, int imgResId, int x, int y) {
-        ImageView imageView = new ImageView(activity);
-        imageView.setImageResource(imgResId);
-
-
+    public static FrameLayout AddFrameLayout(final Activity activity, final int x, final int y) {
         FrameLayout frameLayout = new FrameLayout(activity);
 
-        frameLayout.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,
+        frameLayout.setLayoutParams(new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.WRAP_CONTENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT));
 
-        //adding view to layout
-        frameLayout.addView(imageView);
-
-        activity.addContentView(frameLayout, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+        activity.addContentView(frameLayout, new ViewGroup.LayoutParams
+                (ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
 
-        frameLayout.setX(x);
-        frameLayout.setY(y);
+        MoveTo(frameLayout,x,y);
+        return frameLayout;
+    }
 
+    public static ImageView AddImageView(final Activity context, final ViewGroup parent,
+                                         final int imgResId) {
+        ImageView imageView = new ImageView(context);
+        imageView.setImageResource(imgResId);
+        //adding view to layout
+        parent.addView(imageView);
         return imageView;
     }
 
-    public static void AddImageView(final Activity activity, final int x, final int y) {
+    public static ImageView AddImageView(Activity activity, int imgResId, int x, int y) {
+        FrameLayout frameLayout = AddFrameLayout(activity,x,y);
+        return AddImageView(activity,frameLayout, imgResId);
+    }
+
+    public static void AddExampleImageView(final Activity activity, final int x, final int y) {
         final int resImageId = R.drawable.android;
         activity.runOnUiThread(new Runnable() {
             @Override
@@ -40,7 +48,12 @@ public class Utils {
                 AddImageView(activity, resImageId, x, y);
             }
         });
-
     }
+
+    public static void MoveTo(View view, int newX, int newY){
+        view.setX(newX);
+        view.setY(newY);
+    }
+
 
 }

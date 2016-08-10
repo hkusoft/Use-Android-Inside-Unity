@@ -9,18 +9,11 @@ public class InjectSimpleAndroidUI : MonoBehaviour {
 
         if (Application.platform == RuntimePlatform.Android)
         {
-            Debug.Log("Android function is to be called");
-
             var ajc = new AndroidJavaClass("com.example.xyz.uihelper.Utils"); 
-            ajc.CallStatic("AddImageView", GetAndroidActivity(),  0, 0);
+            ajc.CallStatic("AddExampleImageView", GetAndroidActivity(),  100, 200);
         }
     }
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
     public static AndroidJavaObject GetAndroidActivity()
     {
         AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");

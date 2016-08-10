@@ -14,6 +14,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Utils.AddImageView(this, 0, 0);
+        Utils.AddExampleImageView(this, 100, 200);
     }
 }
