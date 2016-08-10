@@ -11,9 +11,10 @@ Return some string from Android java code, and then use it in Unity3D C# code.
 ![Call Android code in Unity3D](https://raw.githubusercontent.com/hkusoft/Use-Android-Inside-Unity/40b23c99680be55edd4599615a5f0c4033053fa7/Snapshots/android_static_func_result.png)
 
 
-### Add Android Views to Unity3D: [How to add an Android View/ViewGroup to Unity3D](https://xinyustudio.wordpress.com/2016/08/10/step-by-step-guide-for-developing-android-plugin-for-unity3d-ii/)
+### InjectSimpleUI [How to add an Android View/ViewGroup to Unity3D](https://xinyustudio.wordpress.com/2016/08/10/step-by-step-guide-for-developing-android-plugin-for-unity3d-ii/)
 
 ![ImageView in Android](https://github.com/hkusoft/Use-Android-Inside-Unity/blob/master/Snapshots/imageview_android.png)
+
 ![ImageView in Unity3D](https://github.com/hkusoft/Use-Android-Inside-Unity/blob/master/Snapshots/imageview_u3d.png)
 
 
