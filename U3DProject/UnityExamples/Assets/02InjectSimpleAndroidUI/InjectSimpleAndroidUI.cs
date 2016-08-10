@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class InjectSimpleAndroidUI : MonoBehaviour {
 
@@ -12,8 +13,6 @@ public class InjectSimpleAndroidUI : MonoBehaviour {
 
             var ajc = new AndroidJavaClass("com.example.xyz.uihelper.Utils"); 
             ajc.CallStatic("AddImageView", GetAndroidActivity(),  0, 0);
-
-            
         }
     }
 	
@@ -27,5 +26,11 @@ public class InjectSimpleAndroidUI : MonoBehaviour {
         AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
         return jo;
+    }
+
+
+    public void LoadPreviousLevel()
+    {
+        SceneManager.LoadScene("01CallStaticAndroidFunction");
     }
 }
